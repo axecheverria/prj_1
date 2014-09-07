@@ -13,7 +13,7 @@ def my_form():
 @app.route('/', methods=['POST'])
 def my_form_post():
     text = request.form['text']
-    multiply_text = text * 3
+    multiply_text = text * 4
    
     return multiply_text
 
