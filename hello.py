@@ -12,13 +12,13 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    # text = request.form['text']
-    # multiply_text = text * 4
+    text = request.form['text']
+    multiply_text = text * 4
 
     s = os.system("ls -lt")
    
-    # return multiply_text
-    return s 
+    return multiply_text
+    # return s 
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
