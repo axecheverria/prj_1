@@ -16,9 +16,9 @@ def my_form_post():
     multiply_text = text * 4
 
 
-    os.system("cd #{RAILS_ROOT}/tmp/")
-    os.system("mkdir ./musicFiles")
-    os.system("cd ./musicFiles")
+    os.system("mkdir #{RAILS_ROOT}/tmp/musicFiles")
+    os.system("cd #{RAILS_ROOT}/tmp/musicFiles")
+    # os.system("cd ./")
 
     # s = os.system("ls -lt")
     os.system("youtube-dl https://www.youtube.com/watch?v=pZ12_E5R3qc") 
