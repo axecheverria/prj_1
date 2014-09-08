@@ -35,10 +35,10 @@ def my_form_post():
     while True:
         filename = f.readline()
         
-        if (".mp4" in current_filename):
+        if (".mp4" in filename):
             break
 
-        if (current_filename == ""):
+        if (filename == ""):
             break
 
     f.close()
