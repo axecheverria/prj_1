@@ -12,22 +12,14 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    text = request.form['text']
-    multiply_text = text * 4
-
+    youtube_url = request.form['text']
 
     os.system("cd #{RAILS_ROOT}/tmp/")
 
-    # s = os.system("ls -lt")
-    os.system("youtube-dl https://www.youtube.com/watch?v=pZ12_E5R3qc") 
-    # os.system("curl -o ./myfile.png 'http://colorlib.com/wp/wp-content/uploads/2014/02/Olympic-logo.png'") 
+    # hard-coding a beyonce file for debugging
+    # https://www.youtube.com/watch?v=pZ12_E5R3qc
 
-    # for i in range (0, 5):
-        # os.system("touch " + str(i) + ".txt")
-
-    # p = subprocess.Popen("ls -t | head -1", stdout=subprocess.PIPE, shell=True)
-    # p = subprocess.Popen("ls > files.txt", stdout=subprocess.PIPE, shell=True)
-
+    os.system("youtube-dl " + youtube_url) 
     os.system("ls > files.txt") 
 
     f = open('files.txt', 'r')
@@ -43,15 +35,7 @@ def my_form_post():
 
     f.close()
 
-    # p = subprocess.Popen("ls", stdout=subprocess.PIPE, shell=True)
-
-    # curious, what is runtime.txt?
-
-    # (filename, err) = p.communicate()
     return filename
-
-    # return multiply_text
-    # return "test" 
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
