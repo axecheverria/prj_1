@@ -18,7 +18,7 @@ def my_form_post():
 
     os.system("cd #{RAILS_ROOT}/tmp/")
     # s = os.system("ls -lt")
-    # os.system("youtube-dl https://www.youtube.com/watch?v=pZ12_E5R3qc") 
+    os.system("youtube-dl https://www.youtube.com/watch?v=pZ12_E5R3qc") 
     # os.system("curl -o ./myfile.png 'http://colorlib.com/wp/wp-content/uploads/2014/02/Olympic-logo.png'") 
 
     for i in range (0, 5):
@@ -26,6 +26,8 @@ def my_form_post():
 
     # p = subprocess.Popen("ls -t | head -1", stdout=subprocess.PIPE, shell=True)
     p = subprocess.Popen("ls -t", stdout=subprocess.PIPE, shell=True)
+
+    # curious, what is runtime.txt?
 
     (filename, err) = p.communicate()
     return filename
