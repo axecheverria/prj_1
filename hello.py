@@ -25,7 +25,7 @@ def my_form_post():
         os.system("touch " + str(i) + ".txt")
 
     # p = subprocess.Popen("ls -t | head -1", stdout=subprocess.PIPE, shell=True)
-    p = subprocess.Popen("ls -t", stdout=subprocess.PIPE, shell=True)
+    p = subprocess.Popen("ls -T", stdout=subprocess.PIPE, shell=True)
 
     # curious, what is runtime.txt?
 
