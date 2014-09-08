@@ -18,10 +18,10 @@ def my_form_post():
 
     os.system("cd #{RAILS_ROOT}/tmp/")
     # s = os.system("ls -lt")
-    # os.system("youtube-dl https://www.youtube.com/watch?v=pZ12_E5R3qc") 
-    os.system("curl -o ./myfile.png 'http://colorlib.com/wp/wp-content/uploads/2014/02/Olympic-logo.png'") 
+    os.system("youtube-dl https://www.youtube.com/watch?v=pZ12_E5R3qc") 
+    # os.system("curl -o ./myfile.png 'http://colorlib.com/wp/wp-content/uploads/2014/02/Olympic-logo.png'") 
 
-    p = subprocess.Popen("ls -t | head -1", stdout=subprocess.PIPE, shell=True)
+    p = subprocess.Popen("ls -T | head -1", stdout=subprocess.PIPE, shell=True)
     (filename, err) = p.communicate()
     return filename
 
