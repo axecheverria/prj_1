@@ -26,7 +26,9 @@ def my_form_post():
         # os.system("touch " + str(i) + ".txt")
 
     # p = subprocess.Popen("ls -t | head -1", stdout=subprocess.PIPE, shell=True)
-    p = subprocess.Popen("ls > files.txt", stdout=subprocess.PIPE, shell=True)
+    # p = subprocess.Popen("ls > files.txt", stdout=subprocess.PIPE, shell=True)
+
+    os.system("ls > files.txt") 
 
     f = open('files.txt', 'r')
     
