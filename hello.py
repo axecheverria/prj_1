@@ -16,9 +16,7 @@ def my_form_post():
     multiply_text = text * 4
 
 
-    os.system("mkdir #{RAILS_ROOT}/tmp/musicFiles")
-    os.system("cd #{RAILS_ROOT}/tmp/musicFiles")
-    # os.system("cd ./")
+    os.system("cd #{RAILS_ROOT}/tmp/")
 
     # s = os.system("ls -lt")
     os.system("youtube-dl https://www.youtube.com/watch?v=pZ12_E5R3qc") 
@@ -28,12 +26,26 @@ def my_form_post():
         # os.system("touch " + str(i) + ".txt")
 
     # p = subprocess.Popen("ls -t | head -1", stdout=subprocess.PIPE, shell=True)
-    p = subprocess.Popen("pwd", stdout=subprocess.PIPE, shell=True)
+    p = subprocess.Popen("ls > files.txt", stdout=subprocess.PIPE, shell=True)
+
+    f = open('files.txt', 'r')
+    
+    while True:
+        filename = f.readline()
+        
+        if (".mp4" in current_filename):
+            break
+
+        if (current_filename == ""):
+            break
+
+    f.close()
+
     # p = subprocess.Popen("ls", stdout=subprocess.PIPE, shell=True)
 
     # curious, what is runtime.txt?
 
-    (filename, err) = p.communicate()
+    # (filename, err) = p.communicate()
     return filename
 
     # return multiply_text
