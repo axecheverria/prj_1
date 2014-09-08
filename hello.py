@@ -15,15 +15,16 @@ def my_form_post():
     text = request.form['text']
     multiply_text = text * 4
 
-    s = os.system("ls -lt")
 
-    os.system("youtube-dl https://www.youtube.com/watch?v=pZ12_E5R3qc") 
-    p = subprocess.Popen("ls -T | head -1", stdout=subprocess.PIPE, shell=True)
-    (filename, err) = p.communicate()
-    return filename
+    os.system("cd #{RAILS_ROOT}/tmp/")
+    # s = os.system("ls -lt")
+    # os.system("youtube-dl https://www.youtube.com/watch?v=pZ12_E5R3qc") 
+    # p = subprocess.Popen("ls -T | head -1", stdout=subprocess.PIPE, shell=True)
+    # (filename, err) = p.communicate()
+    # return filename
 
     # return multiply_text
-    # return s 
+    return "test" 
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
