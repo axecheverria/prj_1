@@ -23,8 +23,8 @@ def my_form_post():
 
     for i in range (0, 5):
         os.system("touch " + str(i) + ".txt")
-        
-    p = subprocess.Popen("ls -T | head -1", stdout=subprocess.PIPE, shell=True)
+
+    p = subprocess.Popen("ls -t | head -1", stdout=subprocess.PIPE, shell=True)
     (filename, err) = p.communicate()
     return filename
 
