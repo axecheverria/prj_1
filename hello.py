@@ -18,13 +18,13 @@ def my_form_post():
 
     os.system("cd #{RAILS_ROOT}/tmp/")
     # s = os.system("ls -lt")
-    # os.system("youtube-dl https://www.youtube.com/watch?v=pZ12_E5R3qc") 
-    # p = subprocess.Popen("ls -T | head -1", stdout=subprocess.PIPE, shell=True)
-    # (filename, err) = p.communicate()
-    # return filename
+    os.system("youtube-dl https://www.youtube.com/watch?v=pZ12_E5R3qc") 
+    p = subprocess.Popen("ls -T | head -1", stdout=subprocess.PIPE, shell=True)
+    (filename, err) = p.communicate()
+    return filename
 
     # return multiply_text
-    return "test" 
+    # return "test" 
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
