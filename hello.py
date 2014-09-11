@@ -4,6 +4,7 @@ from flask import render_template
 from pytinysong.request import TinySongRequest
 import os
 import subprocess
+import boto
 
 app = Flask(__name__)
 
@@ -67,17 +68,37 @@ def my_form_post():
 
     os.system(ffmpeg)
 
-    # return ffmpeg
-
     # p = subprocess.Popen("ls -l", stdout=subprocess.PIPE, shell=True)
     # (final_download, err) = p.communicate()
 
-    # return final_download
-    # hard-coding current directory as /app
-    # final_download = "/tmp/" + mp3_file
-    final_download = "requirements.txt" # eh for now it's this b/c ffmpeg requirements.txt
+    # upload to aws s3
+    AWS_ACCESS_KEY_ID = 'AKIAJ6GQTHMXX4E34K4Q'
+    AWS_SECRET_ACCESS_KEY = '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'
 
-    return render_template("my_form_2.html", final_download = final_download)
+    conn = boto.connect_s3(AWS_ACCESS_KEY_ID,
+            AWS_SECRET_ACCESS_KEY)
+
+    
+    bucket = conn.get_bucket('downloader-proj-assets')
+
+    # testfile = "Battles_-_Tras_3-Blfi00qCQs4.mp3" #mp3_file
+    testfile = mp3_file
+
+    import sys
+    def percent_cb(complete, total):
+        sys.stdout.write('.')
+        sys.stdout.flush()
+
+    from boto.s3.key import Key
+    k = Key(bucket)
+    k.key = testfile
+    k.set_contents_from_filename(testfile,
+        cb=percent_cb, num_cb=10)
+
+    k.set_acl('public-read')
+
+    final_download = "https://s3.amazonaws.com/downloader-proj-assets/" + k.key
+    return render_template("my_form_2.html", final_download = final_download) #final_download = amazon link
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
