@@ -61,7 +61,6 @@ def my_form_post():
     mp3_file = filename_parsed[0:len(filename_parsed) - 4] + ".mp3"
 
     # build string
-
     ffmpeg_path = "/app/.heroku/vendor/ffmpeg/bin/"
 
     ffmpeg = ffmpeg_path + "ffmpeg -y -i " + filename_parsed # issue: i want a prettier .mp3 file
@@ -71,8 +70,8 @@ def my_form_post():
 
     os.system(ffmpeg)
 
-    p = subprocess.Popen("ls -l", stdout=subprocess.PIPE, shell=True)
-    (final_download, err) = p.communicate()
+    # p = subprocess.Popen("ls -l", stdout=subprocess.PIPE, shell=True)
+    # (final_download, err) = p.communicate()
 
     # upload to aws s3
     AWS_ACCESS_KEY_ID = 'AKIAJ6GQTHMXX4E34K4Q'
@@ -86,23 +85,23 @@ def my_form_post():
     # testfile = "Battles_-_Tras_3-Blfi00qCQs4.mp3" #mp3_file
     testfile = mp3_file
 
-    return final_download
-'''
+    # return final_download
+
     import sys
-    def percent_cb(complete, total):
+    def percent_cb(complete, total): # might not need this
         sys.stdout.write('.')
         sys.stdout.flush()
 
     from boto.s3.key import Key
     k = Key(bucket)
     k.key = testfile
-    k.set_contents_from_filename(testfile,
+    k.set_contents_from_filename(testfile, # or this
         cb=percent_cb, num_cb=10)
 
     k.set_acl('public-read')
 
     final_download = "https://s3.amazonaws.com/downloader-proj-assets/" + k.key
-    return render_template("my_form_2.html", final_download = final_download) #final_download = amazon link'''
+    return render_template("my_form_2.html", final_download = final_download) #final_download = amazon link
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
