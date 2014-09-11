@@ -14,6 +14,8 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
+    os.system("rm *.mp4") 
+
     youtube_url = request.form['text']
 
     os.system("cd #{RAILS_ROOT}/tmp/")
@@ -21,12 +23,8 @@ def my_form_post():
     p = subprocess.Popen("youtube-dl -e --get-title " + youtube_url, stdout=subprocess.PIPE, shell=True)
     (youtube_title, err) = p.communicate()
 
-    # hard-coding a beyonce file for debugging
-    # https://www.youtube.com/watch?v=pZ12_E5R3qc
-
     os.system("youtube-dl " + youtube_url) 
 
-    # https://www.youtube.com/watch?v=Blfi00qCQs4 // battles
     os.system("ls > files.txt") 
 
     f = open('files.txt', 'r')
