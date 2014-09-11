@@ -14,8 +14,8 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    os.system("rm *.mp4 files.txt") 
-    # os.system("files.txt") 
+    os.system("rm files.txt")
+    os.system("rm *.mp4") 
 
     youtube_url = request.form['text']
 
