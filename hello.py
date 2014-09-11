@@ -62,9 +62,9 @@ def my_form_post():
 
     # build string
 
-    os.system("chmod 777 /app/.heroku/vendor/ffmpeg")
+    ffmpeg_path = "/app/.heroku/vendor/ffmpeg/bin/"
 
-    ffmpeg = "/app/.heroku/vendor/ffmpeg -y -i " + filename_parsed # issue: i want a prettier .mp3 file
+    ffmpeg = ffmpeg_path + "ffmpeg -y -i " + filename_parsed # issue: i want a prettier .mp3 file
     ffmpeg = ffmpeg + " -metadata title=" +  "\"" + song_name   + "\"" + " "
     ffmpeg = ffmpeg + " -metadata artist=" + "\"" + artist_name + "\"" + " "
     ffmpeg = ffmpeg + " -metadata album=" + "\""  + album_name  + "\"" + " " + mp3_file
