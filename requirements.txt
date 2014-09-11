@@ -14,4 +14,3 @@ virtualenvwrapper==4.3.1
 wsgiref==0.1.2
 youtube-dl==2014.06.26
 -e git://github.com/davidk/pytinysong.git@d07f51f7ae3036c0d72e8c97f07ca6f8e33aa260#egg=pytinysong
-ffmpeg==2.2.4
