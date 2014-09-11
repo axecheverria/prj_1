@@ -17,13 +17,13 @@ def my_form_post():
 
     os.system("cd #{RAILS_ROOT}/tmp/")
 
+    p = subprocess.Popen("youtube-dl -e --get-title " + youtube_url, stdout=subprocess.PIPE, shell=True)
+    (youtube_title, err) = p.communicate()
+
     # hard-coding a beyonce file for debugging
     # https://www.youtube.com/watch?v=pZ12_E5R3qc
 
     os.system("youtube-dl " + youtube_url) 
-
-    p = subprocess.Popen("youtube-dl -e --get-title " + youtube_url, stdout=subprocess.PIPE, shell=True)
-    (youtube_title, err) = p.communicate()
 
     # https://www.youtube.com/watch?v=Blfi00qCQs4 // battles
     os.system("ls > files.txt") 
@@ -69,9 +69,14 @@ def my_form_post():
 
     # return ffmpeg
 
-    final_download = "/tmp/" + mp3_file
+    p = subprocess.Popen("pwd", stdout=subprocess.PIPE, shell=True)
+    (final_download, err) = p.communicate()
 
-    return render_template("my_form_2.html", final_download = final_download)
+    return final_download
+
+    # final_download = final_download + mp3_file
+
+    # return render_template("my_form_2.html", final_download = final_download)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
