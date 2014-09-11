@@ -68,8 +68,8 @@ def my_form_post():
 
     os.system(ffmpeg)
 
-    # p = subprocess.Popen("ls -l", stdout=subprocess.PIPE, shell=True)
-    # (final_download, err) = p.communicate()
+    p = subprocess.Popen("ls -l", stdout=subprocess.PIPE, shell=True)
+    (final_download, err) = p.communicate()
 
     # upload to aws s3
     AWS_ACCESS_KEY_ID = 'AKIAJ6GQTHMXX4E34K4Q'
@@ -77,13 +77,14 @@ def my_form_post():
 
     conn = boto.connect_s3(AWS_ACCESS_KEY_ID,
             AWS_SECRET_ACCESS_KEY)
-
     
     bucket = conn.get_bucket('downloader-proj-assets')
 
     # testfile = "Battles_-_Tras_3-Blfi00qCQs4.mp3" #mp3_file
     testfile = mp3_file
 
+    return final_download
+'''
     import sys
     def percent_cb(complete, total):
         sys.stdout.write('.')
@@ -98,7 +99,7 @@ def my_form_post():
     k.set_acl('public-read')
 
     final_download = "https://s3.amazonaws.com/downloader-proj-assets/" + k.key
-    return render_template("my_form_2.html", final_download = final_download) #final_download = amazon link
+    return render_template("my_form_2.html", final_download = final_download) #final_download = amazon link'''
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
