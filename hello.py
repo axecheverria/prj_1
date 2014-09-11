@@ -14,11 +14,12 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    os.system("rm *.mp4") 
+    os.system("rm *.mp4 files.txt") 
+    # os.system("files.txt") 
 
     youtube_url = request.form['text']
 
-    os.system("cd #{RAILS_ROOT}/tmp/")
+    # os.system("cd #{RAILS_ROOT}/tmp/")
 
     p = subprocess.Popen("youtube-dl -e --get-title " + youtube_url, stdout=subprocess.PIPE, shell=True)
     (youtube_title, err) = p.communicate()
