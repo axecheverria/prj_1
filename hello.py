@@ -69,14 +69,13 @@ def my_form_post():
 
     # return ffmpeg
 
-    p = subprocess.Popen("pwd", stdout=subprocess.PIPE, shell=True)
-    (final_download, err) = p.communicate()
+    # p = subprocess.Popen("pwd", stdout=subprocess.PIPE, shell=True)
+    # (final_download, err) = p.communicate()
 
-    return final_download
+    # hard-coding current directory as /app
+    final_download = "/app/" + mp3_file
 
-    # final_download = final_download + mp3_file
-
-    # return render_template("my_form_2.html", final_download = final_download)
+    return render_template("my_form_2.html", final_download = final_download)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
