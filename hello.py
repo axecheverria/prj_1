@@ -69,7 +69,7 @@ def my_form_post():
 
     # return ffmpeg
 
-    final_download = "#{RAILS_ROOT}/tmp/" + mp3_file
+    final_download = "/tmp/" + mp3_file
 
     return render_template("my_form_2.html", final_download = final_download)
 
