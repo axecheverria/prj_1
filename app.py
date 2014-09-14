@@ -78,8 +78,6 @@ def my_form_post():
     AWS_ACCESS_KEY_ID     = os.environ['S3_KEY']
     AWS_SECRET_ACCESS_KEY = os.environ['S3_SECRET']
 
-    return os.environ['S3_KEY']
-
     conn = boto.connect_s3()
     
     bucket = conn.get_bucket('downloader-proj-assets')
