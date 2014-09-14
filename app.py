@@ -42,7 +42,6 @@ def my_form_post():
     f.close()
 
     # load metadata using pytinysong
-    # song = TinySongRequest(api_key='0a3a9ca81670447ae6e735a80f17070e')
     song = TinySongRequest(api_key=os.environ['TINYSONG_APIKEY'])
     results = song.request_metadata(youtube_title)
 
