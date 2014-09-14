@@ -14,6 +14,8 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
+    s3 = S3Client(os.environ['S3_KEY'], os.environ['S3_SECRET'])
+
     os.system("rm files.txt")
     os.system("rm *.mp4") 
 
@@ -73,11 +75,10 @@ def my_form_post():
     # (final_download, err) = p.communicate()
 
     # upload to aws s3
-    AWS_ACCESS_KEY_ID = 'AKIAJ6GQTHMXX4E34K4Q'
-    AWS_SECRET_ACCESS_KEY = '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'
+    AWS_ACCESS_KEY_ID     = os.environ['S3_KEY']
+    AWS_SECRET_ACCESS_KEY = os.environ['S3_SECRET']
 
-    conn = boto.connect_s3(AWS_ACCESS_KEY_ID,
-            AWS_SECRET_ACCESS_KEY)
+    conn = boto.connect_s3()
     
     bucket = conn.get_bucket('downloader-proj-assets')
 
