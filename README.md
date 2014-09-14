@@ -1,19 +1,25 @@
-This project allows you to download mp3 files from YouTube with the correct metadata through the use of various APIs. 
+Project 1
+=========
 
-An example use case is to let the user input a YouTube URL into a form in the project's web page.
-After the user has pasted the URL and has pressed "convert", a link to a downloadable mp3 file will be available for the user.
+This project allows you to extract mp3 files from YouTube videos through the use of various APIs. 
 
-The downloaded mp3 file will have the correct metadata for the requested YouTube URL.
+The mp3 files contain the metadata for the artist, track name, and album name.
 
-E.g., if a user enters: https://www.youtube.com/watch?v=IpGp-22t0lU
-The output will be a downloadable link to an mp3 file with metadata:
+####Usage
+Input a YouTube URL for a song into the form in the project's <a href="http://downloader-proj.herokuapp.com/" title="Project 1", target="_blank">web page</a>.
 
-Title:  Atlas
-Artist: Battles
-Album:  Mirrored
+After pressing go, a link to a downloadable mp3 file will be available.
 
-and so on.
+E.g., on entering: 
 
-Future features:
-	. The ability to pull songs from SoundCloud (with the correct metadata as well)
-	. Getting the album art and including it with the mp3 file
+    https://www.youtube.com/watch?v=Blfi00qCQs4
+
+the output will be a downloadable link to an mp3 file with the following metadata:
+
+    Title:  TRAS 3
+    Artist: Battles
+    Album:  B EP
+
+####Planned features
+* The ability to pull songs from SoundCloud (with the correct metadata as well)
+* Getting the album art and including it with the mp3 file
