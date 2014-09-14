@@ -14,8 +14,6 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    # s3 = S3Client(os.environ['S3_KEY'], os.environ['S3_SECRET'])
-
     os.system("rm files.txt")
     os.system("rm *.mp4") 
 
@@ -44,7 +42,8 @@ def my_form_post():
     f.close()
 
     # load metadata using pytinysong
-    song = TinySongRequest(api_key='0a3a9ca81670447ae6e735a80f17070e')
+    # song = TinySongRequest(api_key='0a3a9ca81670447ae6e735a80f17070e')
+    song = TinySongRequest(api_key=os.environ['TINYSONG_APIKEY'])
     results = song.request_metadata(youtube_title)
 
     artist_name = results.artist_name
