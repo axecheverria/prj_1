@@ -1,5 +1,5 @@
-Project 1
-=========
+Project 1: YouTube to MP3
+=========================
 
 This project allows you to extract mp3 files from YouTube videos through the use of various APIs. 
 
